@@ -14,8 +14,8 @@
         <!-- Logo -->
         <ImageView
             android:layout_marginTop="20px"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:src="@drawable/fundo_logo"
             android:contentDescription="Logo Segurança do Trabalho"
             android:layout_marginBottom="24dp" />
