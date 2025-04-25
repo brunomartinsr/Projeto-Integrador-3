@@ -12,7 +12,7 @@
         android:id="@+id/logoImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/fundo_logo"
         android:contentDescription="Logo"
         android:layout_marginBottom="24dp" />
 
