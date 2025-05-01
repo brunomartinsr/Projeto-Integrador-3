@@ -1,10 +1,12 @@
-package com.example.segurana_trabalho
+package com.example.seguranca_trabalho
 
 import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import android.content.Intent
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -14,6 +16,7 @@ class LoginActivity : AppCompatActivity() {
 
         val editRF = findViewById<EditText>(R.id.editRF)
         val btnEntrar = findViewById<Button>(R.id.btnEntrar)
+        val textNaoTenhoAcesso = findViewById<TextView>(R.id.textNaoTenhoAcesso)
 
         btnEntrar.setOnClickListener {
             val rfDigitado = editRF.text.toString()
@@ -29,6 +32,10 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "RF inválido", Toast.LENGTH_SHORT).show()
             }
+        }
+        textNaoTenhoAcesso.setOnClickListener {
+            val intent = Intent(this, CadastroActivity::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -5,6 +5,7 @@
     android:background="#FFFFFF">
 
     <LinearLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -22,6 +23,8 @@
 
         <!-- Campo RF -->
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="RF"
             android:textColor="#007F30"
             android:textStyle="bold"
@@ -40,6 +43,8 @@
 
         <!-- Campo Nome -->
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Nome"
             android:textColor="#007F30"
             android:textStyle="bold"
@@ -59,6 +64,8 @@
 
         <!-- Campo Setor -->
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Setor"
             android:textColor="#007F30"
             android:textStyle="bold"
@@ -78,6 +85,8 @@
 
         <!-- Campo Cargo -->
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Cargo"
             android:textColor="#007F30"
             android:textStyle="bold"
@@ -86,7 +95,7 @@
             android:layout_marginBottom="4dp"
             />
 
-        ]<EditText
+        <EditText
             android:id="@+id/editCargo"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -109,6 +118,18 @@
             android:textStyle="bold"
             android:paddingRight="24dp"/>
 
+        <TextView
+            android:id="@+id/textTenhoAcesso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Já tenho acesso"
+            android:textColor="#1E88E5"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true"
+            android:autoLink="none"
+            android:layout_marginBottom="16dp"/>
 
     </LinearLayout>
 </ScrollView>

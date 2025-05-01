@@ -1,4 +1,4 @@
-package com.example.segurana_trabalho
+package com.example.seguranca_trabalho
 
 import org.junit.Test
 
