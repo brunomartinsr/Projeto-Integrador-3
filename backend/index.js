@@ -26,6 +26,40 @@ app.post('/cadastro', async (req, res) => {
   }
 });
 
+app.post('/login', async (req, res) =>{
+  try{
+    const {usuario} = req.body;
+
+    if (!usuario) {
+      return res.status(400).send({ erro: "Usuário não encontrado" });
+    }
+
+    const ref = db.ref('usuarios');
+    const snapshot = await ref.orderByChild('usuario').equalTo(usuario).once('value');
+
+    if (!snapshot.exists()) {
+      return res.status(401).send('Usuário não encontrado');
+    }
+
+    let idUsuario = null;
+    let dadosUsuario = null;
+
+    snapshot.forEach((childSnapshot) => {
+      idUsuario = childSnapshot.key;
+      dadosUsuario = childSnapshot.val();
+    });
+
+    res.status(200).send({
+      id: idUsuario,
+      usuario: dadosUsuario
+    });
+  } catch (err) {
+    console.error('Erro ao fazer login:', err);
+    res.status(500).send('Erro ao fazer login');
+  }
+});
+
+
 app.listen(3000, () => {
   console.log('API rodando em http://localhost:3000');
 });
