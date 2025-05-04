@@ -1,30 +1,47 @@
 const express = require('express');
 const cors = require('cors');
-const admin = require('firebase-admin');
-const serviceAccount = require('./firebase/serviceAccountKey.json');
+const admin = require('firebase-admin')
+const serviceAccount = require('./firebase/serviceAccountKey.json')
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: 'https://worksafe-cd7fb-default-rtdb.firebaseio.com/'
-});
+})
 
-const db = admin.database();
-const app = express();
-app.use(cors());
-app.use(express.json());
+const db = admin.database()
+const app = express()
+app.use(cors())
+app.use(express.json())
+
+app.get('/', (req, res) => {
+  res.send('API está online');
+});
 
 app.post('/cadastro', async (req, res) => {
   try {
-    const data = req.body;
+    const { nome, setor, cargo, rf } = req.body
+
+    if (!rf) {
+      return res.status(400).send('RF é obrigatório')
+    }
+
     const ref = db.ref('usuarios');
+    const snapshot = await ref.orderByChild('rf').equalTo(rf).once('value')
+
+    if (snapshot.exists()) {
+      return res.status(409).send('RF já cadastrado');
+    }
+
     const newUserRef = ref.push();
-    await newUserRef.set(data);
-    res.status(200).send({ id: newUserRef.key });
+    await newUserRef.set({ nome, setor, cargo, rf })
+
+    res.status(200).send({ id: newUserRef.key })
   } catch (err) {
-    console.error('Erro ao salvar dados:', err);
-    res.status(500).send('Erro ao salvar dados');
+    console.error('Erro ao salvar dados:', err)
+    res.status(500).send('Erro ao salvar dados')
   }
-});
+})
+
 
 app.post('/login', async (req, res) =>{
   try{
@@ -57,9 +74,9 @@ app.post('/login', async (req, res) =>{
     console.error('Erro ao fazer login:', err);
     res.status(500).send('Erro ao fazer login');
   }
-});
+})
 
+app.listen(3000, '0.0.0.0', () => {
+  console.log('API rodando em http://0.0.0.0:3000');
+})
 
-app.listen(3000, () => {
-  console.log('API rodando em http://localhost:3000');
-});
