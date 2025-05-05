@@ -82,7 +82,7 @@ class LoginActivity : AppCompatActivity() {
                             Toast.makeText(this@LoginActivity, "Login bem-sucedido!", Toast.LENGTH_SHORT).show()
                             
                             // Navegue para a próxima tela aqui
-                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            val intent = Intent(this@LoginActivity, RegistrosActivity::class.java)
                             startActivity(intent)
                             finish() // Encerra a atividade de login
                         }

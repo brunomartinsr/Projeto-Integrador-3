@@ -45,17 +45,17 @@ app.post('/cadastro', async (req, res) => {
 
 app.post('/login', async (req, res) =>{
   try{
-    const {usuario} = req.body;
+    const {rf} = req.body;
 
-    if (!usuario) {
-      return res.status(400).send({ erro: "Usuário não encontrado" });
+    if (!rf) {
+      return res.status(400).send({ erro: "RF não encontrado" });
     }
 
     const ref = db.ref('usuarios');
-    const snapshot = await ref.orderByChild('usuario').equalTo(usuario).once('value');
+    const snapshot = await ref.orderByChild('rf').equalTo(rf).once('value');
 
     if (!snapshot.exists()) {
-      return res.status(401).send('Usuário não encontrado');
+      return res.status(401).send('RF não encontrado');
     }
 
     let idUsuario = null;
