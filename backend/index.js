@@ -76,6 +76,64 @@ app.post('/login', async (req, res) =>{
   }
 })
 
+app.get('/tela_registros', async (req, res) => {
+  const rf = req.query.rf;
+
+  if (!rf) {
+    return res.status(400).send('RF é obrigatório para buscar os registros.');
+  }
+
+  try {
+    const ref = db.ref('registrosPerigo');
+    const snapshot = await ref.orderByChild('rf').equalTo(rf).once('value');
+
+    const registros = [];
+    snapshot.forEach(child => {
+      registros.push({
+        id: child.key,
+        ...child.val()
+      });
+    });
+
+    res.status(200).send(registros);
+  } catch (err) {
+    console.error('Erro ao buscar registros:', err);
+    res.status(500).send('Erro ao buscar registros');
+  }
+});
+
+
+app.post('/registrar', async (req, res) => {
+  try {
+    const { rf, descricao, status, gravidade, local, geo, fotoUrl } = req.body;
+
+    if (!rf || !descricao || !status || !gravidade || !local || !geo) {
+      return res.status(400).send('Campos obrigatórios estão faltando.');
+    }
+
+    const novoRegistro = {
+      rf,
+      descricao,
+      status,
+      gravidade,
+      local,
+      geo, //fazer por mapa
+      fotoUrl: fotoUrl || '', //foto do lugar
+      data: new Date().toISOString()
+    };
+
+    const ref = db.ref('registrosPerigo');
+    const newRef = ref.push();
+    await newRef.set(novoRegistro);
+
+    res.status(200).send({ id: newRef.key, ...novoRegistro });
+  } catch (err) {
+    console.error('Erro ao salvar registro:', err);
+    res.status(500).send('Erro ao salvar registro');
+  }
+});
+
+
 app.listen(3000, '0.0.0.0', () => {
   console.log('API rodando em http://0.0.0.0:3000');
 })
