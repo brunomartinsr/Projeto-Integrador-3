@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E0F2F1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:id="@+id/btnVoltar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="11dp"
+            android:clickable="true"
+            android:contentDescription="Voltar"
+            android:focusable="true"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:padding="12dp"
+            android:src="@drawable/seta" />
+
+        <ImageView
+            android:id="@+id/app_logo"
+            android:layout_width="69dp"
+            android:layout_height="52dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/fundo_logo" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#FFFFFF"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#C8E6C9"
+            android:padding="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:elevation="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descrição"
+                android:textColor="#2E7D32"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/inputDescricao"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Digite a descrição:"
+                android:backgroundTint="#FFFFFF"
+                android:inputType="text"
+                android:paddingVertical="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gravidade"
+                android:textStyle="bold"
+                android:textColor="#2E7D32"
+                android:layout_marginTop="12dp"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroupGravidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center">
+
+                <RadioButton
+                    android:id="@+id/rbMuitoGrave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Muito grave"
+                    android:textColor="#388E3C"
+                    android:layout_marginEnd="16dp"/>
+
+                <RadioButton
+                    android:id="@+id/rbGrave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Grave"
+                    android:textColor="#388E3C"
+                    android:layout_marginEnd="16dp"/>
+
+                <RadioButton
+                    android:id="@+id/rbPoucoGrave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pouco grave"
+                    android:textColor="#388E3C"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Local"
+                android:textStyle="bold"
+                android:textColor="#2E7D32"
+                android:layout_marginTop="12dp"/>
+            <EditText
+                android:id="@+id/inputLocal"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Ex: Recepção"
+                android:backgroundTint="#FFFFFF"
+                android:inputType="text"
+                android:paddingVertical="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Foto"
+                android:textStyle="bold"
+                android:textColor="#2E7D32"
+                android:layout_marginTop="12dp"/>
+
+            <Button
+                android:id="@+id/btnSelecionarFoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selecionar Foto"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="start"
+                android:backgroundTint="#388E3C"
+                android:textColor="#FFFFFF" />
+
+            <ImageView
+                android:id="@+id/imagePreview"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="centerCrop"
+                android:background="#BDBDBD" />
+
+            <Button
+                android:id="@+id/btnRegistrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Registrar"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#388E3C"
+                android:layout_marginTop="24dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
