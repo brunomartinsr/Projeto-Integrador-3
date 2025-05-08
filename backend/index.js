@@ -86,7 +86,7 @@ app.get('/tela_registros', async (req, res) => {
     }
 
     const registrosData = snapshot.val();
-    const listaRegistros = Object.values(registrosData); // Converte em array
+    const listaRegistros = Object.values(registrosData);
 
     res.status(200).json(listaRegistros);
   } catch (error) {

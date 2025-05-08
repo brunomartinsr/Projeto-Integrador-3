@@ -94,7 +94,7 @@
                 android:id="@+id/my_occurrences_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Minhas Ocorrências"
+                android:text="Ocorrências registradas"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="#388E3C"
