@@ -49,31 +49,26 @@ class LoginActivity : AppCompatActivity() {
         // Usa coroutines para fazer operação de rede em background
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                // Substitua pelo endereço real da sua API
                 val url = URL("http://10.0.2.2:3000/login")
                 val connection = url.openConnection() as HttpURLConnection
                 connection.requestMethod = "POST"
                 connection.setRequestProperty("Content-Type", "application/json")
                 connection.doOutput = true
 
-                // Prepara os dados para enviar
                 val jsonInputString = JSONObject().apply {
                     put("rf", rf)
                 }.toString()
 
-                // Envia os dados
                 OutputStreamWriter(connection.outputStream).use { writer ->
                     writer.write(jsonInputString)
                     writer.flush()
                 }
 
-                // Verifica a resposta
                 val responseCode = connection.responseCode
                 
                 withContext(Dispatchers.Main) {
                     when (responseCode) {
                         200 -> {
-                            // RF válido, salva localmente
                             val sharedPrefs = getSharedPreferences("dados_usuario", Context.MODE_PRIVATE)
                             val editor = sharedPrefs.edit()
                             editor.putString("rf", rf)
@@ -81,10 +76,9 @@ class LoginActivity : AppCompatActivity() {
 
                             Toast.makeText(this@LoginActivity, "Login bem-sucedido!", Toast.LENGTH_SHORT).show()
                             
-                            // Navegue para a próxima tela aqui
                             val intent = Intent(this@LoginActivity, RegistrosActivity::class.java)
                             startActivity(intent)
-                            finish() // Encerra a atividade de login
+                            finish()
                         }
                         401 -> {
                             Toast.makeText(this@LoginActivity, "RF não encontrado", Toast.LENGTH_LONG).show()

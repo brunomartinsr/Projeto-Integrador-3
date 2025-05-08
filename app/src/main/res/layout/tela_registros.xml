@@ -100,6 +100,14 @@
                 android:textColor="#388E3C"
                 android:layout_marginBottom="8dp" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewRegistros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:nestedScrollingEnabled="false"
+                />
+
         </LinearLayout>
 
     </ScrollView>
