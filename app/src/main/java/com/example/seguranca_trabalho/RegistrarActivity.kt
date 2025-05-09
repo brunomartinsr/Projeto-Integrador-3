@@ -68,7 +68,7 @@ class RegistrarActivity : AppCompatActivity() {
 
         btnRegistrar.setOnClickListener {
             val rfFuncionario = intent.getStringExtra("rf") ?: "desconhecido"
-
+            Log.d("DEBUG", "Botão registrar clicado")
             if (imagemSelecionadaUri != null) {
                 uploadImagemParaFirebase(imagemSelecionadaUri!!, rfFuncionario)
             } else {
@@ -141,8 +141,6 @@ class RegistrarActivity : AppCompatActivity() {
         )
     }
 
-
-
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<out String>, grantResults: IntArray
     ) {
@@ -187,7 +185,7 @@ class RegistrarActivity : AppCompatActivity() {
         )
 
         val request = okhttp3.Request.Builder()
-            .url("http://10.0.2.2:3000/registrar")
+            .url("http://192.168.0.126:3000/registrar")
             .post(requestBody)
             .build()
 

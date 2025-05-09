@@ -99,7 +99,7 @@ app.get('/tela_registros', async (req, res) => {
 app.post('/registrar', async (req, res) => {
   try {
     const { rf, descricao, status, gravidade, local, geo, fotoUrl } = req.body;
-
+    console.log(req)
     if (!rf || !descricao || !status || !gravidade || !local || !geo) {
       return res.status(400).send('Campos obrigatórios estão faltando.');
     }

@@ -70,7 +70,7 @@ class CadastroActivity : AppCompatActivity() {
 
     private fun enviarCadastro(nome: String, setor: String, cargo: String, rf: String) {
         val queue = Volley.newRequestQueue(this)
-        val url = "http://10.0.2.2:3000/cadastro"
+        val url = "http://192.168.0.126:3000/cadastro"
 
         val jsonBody = JSONObject().apply {
             put("nome", nome)

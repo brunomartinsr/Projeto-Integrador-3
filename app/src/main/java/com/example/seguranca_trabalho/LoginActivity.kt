@@ -43,13 +43,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun verificarRF(rf: String) {
-        // Mostra um toast de "Verificando..."
         Toast.makeText(this, "Verificando RF...", Toast.LENGTH_SHORT).show()
 
-        // Usa coroutines para fazer operação de rede em background
+        // coroutines faz operação de rede em background
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val url = URL("http://10.0.2.2:3000/login")
+                val url = URL("http://192.168.0.126:3000/login")
                 val connection = url.openConnection() as HttpURLConnection
                 connection.requestMethod = "POST"
                 connection.setRequestProperty("Content-Type", "application/json")
@@ -58,7 +57,7 @@ class LoginActivity : AppCompatActivity() {
                 val jsonInputString = JSONObject().apply {
                     put("rf", rf)
                 }.toString()
-
+                //abrindo canal de saida e escrevendo json
                 OutputStreamWriter(connection.outputStream).use { writer ->
                     writer.write(jsonInputString)
                     writer.flush()

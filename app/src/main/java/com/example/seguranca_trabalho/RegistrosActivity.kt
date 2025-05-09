@@ -39,7 +39,7 @@ class RegistrosActivity : AppCompatActivity() {
 
     private fun buscarRegistros() {
         val request = Request.Builder()
-            .url("http://10.0.2.2:3000/tela_registros")
+            .url("http://192.168.0.126:3000/tela_registros")
             .build()
 
         client.newCall(request).enqueue(object : Callback {
