@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Topo com menu e logo -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="space-between|center_vertical">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:contentDescription="Logo"
+                android:src="@drawable/fundo_logo" />
+        </LinearLayout>
+
+        <!-- Título -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dashboard"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#2E7D32"
+            android:layout_marginTop="12dp" />
+
+        <!-- Gráfico de Pizza -->
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pieChart"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="16dp" />
+
+        <!-- Legenda -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="16dp">
+
+            <TextView android:text="🟠 Em Andamento" android:textColor="#000000"/>
+            <TextView android:text="🔴 Aberto" android:textColor="#000000"/>
+            <TextView android:text="🟢 Concluídos" android:textColor="#000000"/>
+        </LinearLayout>
+
+        <!-- Lista de Ocorrências -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lista de Ocorrências"
+            android:textSize="18sp"
+            android:textColor="#2E7D32"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp" />
+
+        <!-- Cabeçalho da tabela -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#A5D6A7"
+            android:padding="8dp">
+
+            <TextView android:text="Descrição" android:layout_weight="1" android:textStyle="bold"/>
+            <TextView android:text="Status" android:layout_weight="1" android:textStyle="bold"/>
+            <TextView android:text="Gravidade" android:layout_weight="1" android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!-- Linha 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView android:text="Falha na escada" android:layout_weight="1"/>
+            <TextView android:text="Resolvida" android:layout_weight="1"/>
+            <TextView android:text="Média" android:layout_weight="1"/>
+        </LinearLayout>
+
+        <!-- Linha 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView android:text="Exposição à fumaça" android:layout_weight="1"/>
+            <TextView android:text="Aberta" android:layout_weight="1"/>
+            <TextView android:text="Alta" android:layout_weight="1"/>
+        </LinearLayout>
+
+        <!-- Botão Ver Mais -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ver mais"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#2E7D32"
+            android:textColor="#FFFFFF"/>
+
+    </LinearLayout>
+</ScrollView>

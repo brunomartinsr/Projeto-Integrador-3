@@ -49,6 +49,7 @@ dependencies {
     implementation ("com.google.android.gms:play-services-location:21.0.1")
     implementation("com.google.firebase:firebase-storage-ktx")
     implementation("com.google.firebase:firebase-database-ktx")
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation ("com.google.code.gson:gson:2.8.8")
     implementation(libs.firebase.database.ktx)
