@@ -86,9 +86,12 @@ app.get('/tela_registros', async (req, res) => {
     }
 
     const registrosData = snapshot.val();
-    const listaRegistros = Object.values(registrosData);
-
+    const listaRegistros = Object.entries(registrosData).map(([id, data]) => ({
+      id,
+      ...data
+    }));
     res.status(200).json(listaRegistros);
+
   } catch (error) {
     console.error('Erro ao buscar registros:', error);
     res.status(500).json({ erro: 'Erro interno ao buscar registros.' });
@@ -123,6 +126,38 @@ app.post('/registrar', async (req, res) => {
   } catch (err) {
     console.error('Erro ao salvar registro:', err);
     res.status(500).send('Erro ao salvar registro');
+  }
+});
+
+app.put('/editar_registro/:id', async (req, res) => {
+  const id = req.params.id;
+  const { descricao, status, gravidade, local } = req.body;
+
+  if (!descricao || !status || !gravidade || !local) {
+    return res.status(400).json({ erro: 'Todos os campos devem ser preenchidos.' });
+  }
+
+  try {
+    const registroRef = db.ref(`registrosPerigo/${id}`);
+
+    const snapshot = await registroRef.once('value');
+
+    if (!snapshot.exists()) {
+      return res.status(404).json({ erro: 'Registro não encontrado.' });
+    }
+
+    await registroRef.update({
+      descricao,
+      status,
+      gravidade,
+      local
+    });
+
+    res.status(200).json({ mensagem: 'Registro atualizado com sucesso.' });
+
+  } catch (error) {
+    console.error('Erro ao atualizar registro:', error);
+    res.status(500).json({ erro: 'Erro interno no servidor.' });
   }
 });
 

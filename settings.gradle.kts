@@ -20,5 +20,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Segurança_Trabalho"
-include(":app")
+include(":app", ":app2")
  

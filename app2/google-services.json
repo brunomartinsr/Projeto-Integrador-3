@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "139308499927",
+    "project_id": "worksafe-cd7fb",
+    "storage_bucket": "worksafe-cd7fb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139308499927:android:0d5b62590ad9096c1e0192",
+        "android_client_info": {
+          "package_name": "com.example.seguranca_trabalho"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYfljoSy5yThkPkWe_YmEY65DgiUKFfOg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
