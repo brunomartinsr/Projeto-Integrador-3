@@ -61,7 +61,7 @@ class InicialActivity : AppCompatActivity(), OnMapReadyCallback {
                 for (i in 0 until response.length()) {
                     val obj = response.getJSONObject(i)
                     val registro = Registro(
-                        id = obj.optString("_id"),
+                        id = obj.optString("id"),
                         rf = obj.optString("rf"),
                         descricao = obj.optString("descricao"),
                         status = obj.optString("status"),

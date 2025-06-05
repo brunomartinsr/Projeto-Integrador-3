@@ -1,12 +1,14 @@
 package com.example.seguranca_trabalho
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import kotlin.math.log
 
 class RegistroAdapter(private val lista: List<Registro>) :
     RecyclerView.Adapter<RegistroAdapter.RegistroViewHolder>() {
@@ -41,6 +43,7 @@ class RegistroAdapter(private val lista: List<Registro>) :
                 putExtra("gravidade", item.gravidade)
                 putExtra("local", item.local)
             }
+            Log.d("Detalhes", "Executado")
             context.startActivity(intent)
         }
     }

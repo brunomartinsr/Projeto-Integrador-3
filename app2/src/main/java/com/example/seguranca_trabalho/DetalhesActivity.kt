@@ -1,6 +1,7 @@
 package com.example.seguranca_trabalho
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -23,6 +24,9 @@ class DetalhesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tela_detalhes)
 
+        Toast.makeText(this, "DetalhesActivity aberta", Toast.LENGTH_SHORT).show()
+        Log.d("DetalhesActivity", "onCreate foi chamado")
+
         etDescricao = findViewById(R.id.etDescricao)
         etStatus = findViewById(R.id.etStatus)
         etGravidade = findViewById(R.id.etGravidade)
@@ -30,6 +34,7 @@ class DetalhesActivity : AppCompatActivity() {
         btnSalvar = findViewById(R.id.btnSalvar)
 
         id = intent.getStringExtra("id") ?: ""
+        Log.d("DetalhesActivity", "ID recebido: $id")
         etDescricao.setText(intent.getStringExtra("descricao"))
         etStatus.setText(intent.getStringExtra("status"))
         etGravidade.setText(intent.getStringExtra("gravidade"))

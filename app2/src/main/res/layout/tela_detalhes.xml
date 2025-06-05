@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
     android:padding="16dp">
 
     <LinearLayout
@@ -9,36 +10,111 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/tituloTopo"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Detalhes e edição do registro"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:background="#e6e6e6"
+            android:padding="12dp" />
+
+        <TextView
+            android:id="@+id/tituloDescricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descrição"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingBottom="4dp" />
+
         <EditText
             android:id="@+id/etDescricao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Descrição" />
+            android:hint="Digite a descrição"
+            android:background="@android:drawable/edit_text"
+            android:textColor="#000000"
+            android:padding="8dp" />
+
+        <!-- Título e campo Status -->
+        <TextView
+            android:id="@+id/tituloStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingTop="16dp"
+            android:paddingBottom="4dp" />
 
         <EditText
             android:id="@+id/etStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Status" />
+            android:hint="Digite o status"
+            android:background="@android:drawable/edit_text"
+            android:textColor="#000000"
+            android:padding="8dp" />
+
+        <!-- Título e campo Gravidade -->
+        <TextView
+            android:id="@+id/tituloGravidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gravidade"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingTop="16dp"
+            android:paddingBottom="4dp" />
 
         <EditText
             android:id="@+id/etGravidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Gravidade" />
+            android:hint="Digite a gravidade"
+            android:background="@android:drawable/edit_text"
+            android:textColor="#000000"
+            android:padding="8dp" />
+
+        <!-- Título e campo Local -->
+        <TextView
+            android:id="@+id/tituloLocal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Local"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingTop="16dp"
+            android:paddingBottom="4dp" />
 
         <EditText
             android:id="@+id/etLocal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Local" />
+            android:hint="Digite o local"
+            android:background="@android:drawable/edit_text"
+            android:textColor="#000000"
+            android:padding="8dp" />
 
+        <!-- Botão Salvar -->
         <Button
             android:id="@+id/btnSalvar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Salvar alterações"
-            android:layout_marginTop="24dp" />
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp" />
 
     </LinearLayout>
 </ScrollView>
