@@ -15,6 +15,10 @@
         android:networkSecurityConfig="@xml/network_security_config"
         tools:targetApi="31">
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAv0vd-kacRbKAczkTnH9YNQtcbAo7PESA"/>
+
         <activity
             android:name="com.example.seguranca_trabalho.InicialActivity"
             android:exported="true">
