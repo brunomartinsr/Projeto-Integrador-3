@@ -2,6 +2,7 @@ package com.example.seguranca_trabalho
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,11 +25,18 @@ class InicialActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var recyclerView: RecyclerView
     private val listaRegistros = mutableListOf<Registro>()
     private lateinit var googleMap: GoogleMap
+    private lateinit var txtPoucoGrave: TextView
+    private lateinit var txtGrave: TextView
+    private lateinit var txtMuitoGrave: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tela_inicial)
 
+        txtPoucoGrave = findViewById(R.id.txtPoucoGrave)
+        txtGrave = findViewById(R.id.txtGrave)
+        txtMuitoGrave = findViewById(R.id.txtMuitoGrave)
         recyclerView = findViewById(R.id.recyclerViewRegistros)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = RegistroAdapter(listaRegistros)
@@ -40,10 +48,16 @@ class InicialActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun carregarRegistros() {
-        val url = "http://192.168.0.126:3000/tela_registros" // 10.0.2.2 para localhost no emulador Android
+        val url = "http://192.168.0.126:3000/tela_registros"// 10.0.2.2 para localhost no emulador
 
         val request = JsonArrayRequest(Request.Method.GET, url, null,
             { response: JSONArray ->
+                listaRegistros.clear()
+
+                var poucoGrave = 0
+                var grave = 0
+                var muitoGrave = 0
+
                 for (i in 0 until response.length()) {
                     val obj = response.getJSONObject(i)
                     val registro = Registro(
@@ -59,12 +73,23 @@ class InicialActivity : AppCompatActivity(), OnMapReadyCallback {
                     )
                     listaRegistros.add(registro)
 
+                    when (registro.gravidade.trim().lowercase()) {
+                        "pouco grave" -> poucoGrave++
+                        "grave" -> grave++
+                        "muito grave" -> muitoGrave++
+                    }
+
                     adicionarMarcadorNoMapa(registro.geo, registro.descricao)
                 }
+
+                txtPoucoGrave.text = "Pouco grave: $poucoGrave"
+                txtGrave.text = "Grave: $grave"
+                txtMuitoGrave.text = "Muito grave: $muitoGrave"
+
                 recyclerView.adapter?.notifyDataSetChanged()
             },
             { error ->
-                Log.e("ErroVolley", "Erro ao buscar registros: ${error.message}")
+                Log.e("ErroVolley", "erro ao buscar registros: ${error.message}")
             })
 
         Volley.newRequestQueue(this).add(request)

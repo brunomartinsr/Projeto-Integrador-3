@@ -7,7 +7,6 @@
     android:background="#F5F5F5"
     android:orientation="vertical">
 
-    <!-- Top Bar -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -26,14 +25,56 @@
             android:src="@drawable/fundo_logo" />
     </RelativeLayout>
 
-    <!-- Mapa -->
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="300dp" />
 
-    <!-- Lista rolável -->
+
+    <LinearLayout
+        android:id="@+id/gravidadeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/txtPoucoGrave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Pouco grave: 0"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/txtGrave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Grave: 0"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/txtMuitoGrave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Muito grave: 0"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:gravity="center" />
+    </LinearLayout>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewRegistros"
         android:layout_width="match_parent"
