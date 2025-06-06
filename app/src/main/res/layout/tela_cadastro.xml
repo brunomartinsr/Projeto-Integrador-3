@@ -12,7 +12,6 @@
         android:padding="15dp"
         android:gravity="center_horizontal">
 
-        <!-- Logo -->
         <ImageView
             android:layout_marginTop="20px"
             android:layout_width="150dp"
@@ -21,7 +20,6 @@
             android:contentDescription="Logo Segurança do Trabalho"
             android:layout_marginBottom="24dp" />
 
-        <!-- Campo RF -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,10 +36,10 @@
             android:layout_height="50dp"
             android:background="@drawable/edit_text_bg"
             android:padding="12dp"
+            android:textColor="#000000"
             android:hint="Digite o RF"
             android:textColorHint="#444" />
 
-        <!-- Campo Nome -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,9 +58,9 @@
             android:textColorHint="#444"
             android:background="@drawable/edit_text_bg"
             android:padding="12dp"
+            android:textColor="#000000"
             android:hint="Digite o nome" />
 
-        <!-- Campo Setor -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -81,9 +79,9 @@
             android:textColorHint="#444"
             android:background="@drawable/edit_text_bg"
             android:padding="12dp"
+            android:textColor="#000000"
             android:hint="Digite o setor" />
 
-        <!-- Campo Cargo -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -99,13 +97,13 @@
             android:id="@+id/editCargo"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:textColor="#000000"
             android:background="@drawable/edit_text_bg"
             android:padding="12dp"
             android:textColorHint="#444"
             android:layout_marginTop="20px"
             android:hint="Digite o cargo" />
 
-        <!-- Botão Cadastrar -->
         <Button
             android:id="@+id/btnEntrar"
             android:layout_width="wrap_content"

@@ -24,17 +24,6 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.Priority
 
-
-data class RegistroDePerigo(
-    val rf: String = "",
-    val descricao: String = "",
-    val status: String = "Aberto",
-    val gravidade: String = "",
-    val local: String = "",
-    val geo: String = "",
-    val fotoUrl: String = ""
-)
-
 class RegistrarActivity : AppCompatActivity() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var inputDescricao: EditText
@@ -66,9 +55,12 @@ class RegistrarActivity : AppCompatActivity() {
             finish()
         }
 
+        btnSelecionarFoto.setOnClickListener {
+            selecionarImagemGaleria()
+        }
+
         btnRegistrar.setOnClickListener {
             val rfFuncionario = intent.getStringExtra("rf") ?: "desconhecido"
-            Log.d("DEBUG", "Botão registrar clicado")
             if (imagemSelecionadaUri != null) {
                 uploadImagemParaFirebase(imagemSelecionadaUri!!, rfFuncionario)
             } else {
@@ -76,9 +68,6 @@ class RegistrarActivity : AppCompatActivity() {
             }
         }
 
-        btnSelecionarFoto.setOnClickListener {
-            selecionarImagemGaleria()
-        }
     }
 
     private val selecionarImagem =
@@ -161,12 +150,6 @@ class RegistrarActivity : AppCompatActivity() {
         } else {
             "Não informada"
         }
-        Log.d("REGISTRO", "RF: $rfFuncionario")
-        Log.d("REGISTRO", "Descrição: $descricao")
-        Log.d("REGISTRO", "Gravidade: $gravidade")
-        Log.d("REGISTRO", "Local: $local")
-        Log.d("REGISTRO", "Foto URL: $imagemUrl")
-        Log.d("REGISTRO", "Localização: $localizacaoAtual")
 
         val json = """
             {

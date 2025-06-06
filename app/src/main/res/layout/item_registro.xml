@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
     android:elevation="4dp"
-    android:padding="12dp"
-    android:background="#FFFFFF">
+    android:padding="0dp"
+    app:cardCornerRadius="12dp"
+    app:cardBackgroundColor="#E8F5E9">
 
-    <!-- item_registro.xml -->
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
@@ -18,18 +20,27 @@
             android:id="@+id/txtDescricao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Descrição" />
+            android:text="Descrição"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#1B5E20"
+            android:layout_marginBottom="4dp" />
 
         <TextView
             android:id="@+id/txtGravidade"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gravidade" />
+            android:text="Gravidade"
+            android:textSize="15sp"
+            android:textColor="#2E7D32"
+            android:layout_marginBottom="4dp" />
 
         <TextView
             android:id="@+id/txtLocal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Local" />
+            android:text="Local"
+            android:textSize="15sp"
+            android:textColor="#2E7D32" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
